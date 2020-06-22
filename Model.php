@@ -9,7 +9,7 @@ abstract class Model
 
     public static function findAll(): array
     {
-        $db = new \Db();
+        $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE;
         return $db->query($sql, static::class);
     }
