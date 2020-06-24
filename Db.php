@@ -6,7 +6,11 @@ class Db
 
     public function __construct()
     {
-        $this->dbh = new \PDO('pgsql:host=localhost;dbname=profit', 'profit', 'profit');
+        $config = \App\Config::getInstance();
+        var_dump($config);
+        $this->dbh = new \PDO
+        ($config->data['db']['db'] . ':host=' . $config->data['db']['host'] .
+            ';dbname=' . $config->data['db']['dbname'], $config->data['db']['user'], $config->data['db']['password']);
     }
 
     public function query($sql,  $class, $data = []): array

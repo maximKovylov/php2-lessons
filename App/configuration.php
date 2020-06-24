@@ -6,7 +6,7 @@ return
                 'db' => 'pgsql',
                 'host' => 'localhost',
                 'dbname' => 'profit',
-                'username' => 'profit',
+                'user' => 'profit',
                 'password' => 'profit'
             ],
     ];
