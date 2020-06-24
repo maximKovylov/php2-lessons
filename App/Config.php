@@ -6,7 +6,7 @@ namespace App;
 
 class Config
 {
-    protected $data;
+    public $data;
     public function __construct()
     {
         $this->data = include __DIR__ . '/configuration.php';

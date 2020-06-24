@@ -2,7 +2,6 @@
 
 class Db
 {
-
     protected $dbh;
 
     public function __construct()
@@ -21,5 +20,10 @@ class Db
     {
         $sth = $this->dbh->prepare($query);
         return $sth->execute($data);
+    }
+
+    public function lastId()
+    {
+        return $this->dbh->lastInsertId();
     }
 }
