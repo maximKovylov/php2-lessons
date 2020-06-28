@@ -10,16 +10,16 @@ class Db
         $this->dbh = new \PDO('pgsql:host=localhost;dbname=profit', 'profit', 'profit');
     }
 
-    public function query($sql, $data = [], $class): array
+    public function query($sql,  $class, $data = []): array
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($data);
         return $sth->fetchAll(PDO::FETCH_CLASS, $class);
     }
 
-    public function execute($query, $params = [])
+    public function execute($query, $data = [])
     {
         $sth = $this->dbh->prepare($query);
-        return $sth->execute($params);
+        return $sth->execute($data);
     }
 }

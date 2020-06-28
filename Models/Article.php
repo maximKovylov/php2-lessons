@@ -15,6 +15,6 @@ class Article
     {
         $db = new \Db();
         $sql = 'SELECT * FROM ' . self::TABLE . ' ORDER BY id DESC LIMIT 3';
-        return $db->query($sql, [], self::class);
+        return $db->query($sql,self::class, []);
     }
 }

@@ -19,11 +19,11 @@ abstract class Model
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id=:id';
-        if ([] !== $db->query($sql, ['id' => $id], static::class)) {
-            return $db->query($sql, ['id' => $id], static::class);
-        } else {
+        $data = $db->query($sql,static::class, ['id' => $id]);
+        if (empty($data)) {
             return false;
         }
+        return $data;
     }
 
 }

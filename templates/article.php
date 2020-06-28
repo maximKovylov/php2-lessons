@@ -9,17 +9,14 @@
 </head>
 <body>
 
-<?php
-foreach ($data as $article) {
-    ?>
     <h2>
-        <?php echo $article->title; ?>
+        <?php echo $data[0]->title; ?>
     </h2>
     <article>
-        <?php echo $article->content; ?>
+        <?php echo $data[0]->content; ?>
     </article>
     <hr>
-<?php }; ?>
+
 <a href="/"><button>Назад</button></a>
 
 </body>
