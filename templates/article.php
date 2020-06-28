@@ -28,7 +28,11 @@
 >>>>>>> +MagicMetodsTrait
     </article>
     <br>
+<<<<<<< HEAD
     Автор: <?php echo $this->article->author->name; ?>
+=======
+    Автор: <?php echo $this->article[0]->author->name; ?>
+>>>>>>> + App\Models\Authors, в шаблонах сделан вывод авторов
     <hr>
 <<<<<<< HEAD
 =======
