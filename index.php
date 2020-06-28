@@ -1,7 +1,10 @@
 <?php
 require __DIR__ . '/autoload.php';
 
-$data = \Models\Article::getLastArticle();
-include __DIR__ . '/templates/index.php';
+$view = new \App\View();
+$view->articles = \App\Models\Article::getLastArticle();
+$view->display(__DIR__ . '/templates/index.php');
+
+
 
 

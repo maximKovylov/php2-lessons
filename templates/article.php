@@ -15,6 +15,7 @@
 </nav>
 
     <h2>
+<<<<<<< HEAD
         <?php echo $data->title; ?>
     </h2>
     <article>
@@ -22,6 +23,30 @@
     </article>
     <hr>
 
+=======
+        <?php echo $this->article[0]->title; ?>
+    </h2>
+    <article>
+        <?php echo $this->article[0]->content; ?>
+    </article>
+    <hr>
+
+
+    <a href="/admin.php?act=delete&id=<?php echo $this->article[0]->id; ?>">Удалить новость</a>
+    <hr>
+
+    Редактировать новость<br>
+    <form action="/admin.php?id=<?php echo $this->article[0]->id; ?>&act=update" method="post">
+        <label>
+            <input type="text" placeholder="изменить заголовок" name="title">
+        </label>
+        <label>
+            <input type="text" placeholder="изменить описание" name="content">
+        </label>
+        <input type="submit">
+    </form>
+
+>>>>>>> +MagicMetodsTrait
 <a href="/"><button>Назад</button></a>
 
 </body>

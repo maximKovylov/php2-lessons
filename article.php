@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/autoload.php';
 
-$data = \Models\Article::findById($_GET['id']);
-include __DIR__ . '/templates/article.php';
+$view = new \App\View();
+$view->article = \App\Models\Article::findById($_GET['id']);
+$view->display(__DIR__ . '/templates/article.php');

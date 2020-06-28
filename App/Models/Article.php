@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Models;
+namespace App\Models;
 
 
 class Article
-    extends \Model
+    extends \App\Model
 {
     public string $title;
     public string $content;
@@ -13,7 +13,7 @@ class Article
 
     public static function getLastArticle()
     {
-        $db = new \Db();
+        $db = new \App\Db();
         $sql = 'SELECT * FROM ' . self::TABLE . ' ORDER BY id DESC LIMIT 3';
         return $db->query($sql,self::class, []);
     }

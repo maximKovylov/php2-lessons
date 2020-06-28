@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 class Db
 {
     protected $dbh;
@@ -16,7 +18,7 @@ class Db
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($data);
-        return $sth->fetchAll(PDO::FETCH_CLASS, $class);
+        return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
     }
 
     public function execute($query, $data = [])

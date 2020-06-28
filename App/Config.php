@@ -5,7 +5,7 @@ namespace App;
 
 
 class Config
-    extends \Singleton
+    extends \App\Singleton
 {
     public $data;
     protected function __construct()

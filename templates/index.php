@@ -15,7 +15,7 @@
 </nav>
 
 <?php
-foreach ($data as $article) {
+foreach ($this->articles as $article) {
 ?>
 <h2>
     <a href="/article.php?id=<?php echo $article->id; ?>">
