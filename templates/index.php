@@ -25,8 +25,25 @@ foreach ($this->articles as $article) {
 <article>
     <?php echo $article->content; ?>
 </article>
+<br>
+    Автор: <?php echo $article->author->name; ?>
 <hr>
 <?php }; ?>
 
+<<<<<<< HEAD
+=======
+
+Добавить новость
+<form action="/admin.php?act=insert" method="post">
+    <label>
+        <input type="text" placeholder="заголовок" name="title">
+    </label>
+    <label>
+        <input type="text" placeholder="описание" name="content">
+    </label>
+    <input type="submit">
+</form>
+
+>>>>>>> + App\Models\Authors, в шаблонах сделан вывод авторов
 </body>
 </html>

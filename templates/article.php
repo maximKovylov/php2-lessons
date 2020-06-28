@@ -29,6 +29,8 @@
     <article>
         <?php echo $this->article[0]->content; ?>
     </article>
+    <br>
+    Автор: <?php echo $this->article[0]->author->name; ?>
     <hr>
 
 
