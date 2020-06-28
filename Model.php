@@ -15,7 +15,7 @@ abstract class Model
         return $db->query($sql, [], static::class);
     }
 
-    public static function findById($id)
+    public static function findById($id): array
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id=:id';
@@ -82,5 +82,4 @@ abstract class Model
         $db = new Db();
         $db->execute($sql, [':id' => $this->id]);
     }
-
 }

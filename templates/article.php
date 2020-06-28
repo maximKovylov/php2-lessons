@@ -18,6 +18,7 @@
     </article>
     <hr>
 
+
     <a href="/admin.php?act=delete&id=<?php echo $data[0]->id; ?>">Удалить новость</a>
     <hr>
 
@@ -31,7 +32,6 @@
         </label>
         <input type="submit">
     </form>
-
 
 <a href="/"><button>Назад</button></a>
 
