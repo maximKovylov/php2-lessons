@@ -4,6 +4,8 @@
 namespace App\Models;
 
 
+use App\IteratorTrait;
+
 class Article
     extends \App\Model
 {
@@ -26,7 +28,13 @@ class Article
                 return Author::findById($this->author_id)[0];
             }
         }
-
-
     }
+
+    public function __isset($name)
+    {
+        if ('author' == $name) {
+            return !empty($this->author_id);
+        }
+    }
+
 }

@@ -1,9 +1,14 @@
 <?php
 require __DIR__ . '/autoload.php';
 
-$view = new \App\View();
-$view->articles = \App\Models\Article::getLastArticle();
-$view->display(__DIR__ . '/templates/index.php');
+$ctrl = $_GET['ctrl'] ?? 'Index';
+$class = '\\App\\Controllers\\' . $ctrl;
+if (class_exists($class)) {
+    $ctrl = new $class;
+    $ctrl();
+} else {
+    die('Страница не найдена');
+}
 
 
 
