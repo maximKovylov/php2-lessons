@@ -10,10 +10,10 @@
 <body>
 
     <h2>
-        <?php echo $data[0]->title; ?>
+        <?php echo $data->title; ?>
     </h2>
     <article>
-        <?php echo $data[0]->content; ?>
+        <?php echo $data->content; ?>
     </article>
     <hr>
 

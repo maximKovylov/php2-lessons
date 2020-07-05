@@ -23,7 +23,7 @@ abstract class Model
         if (empty($data)) {
             return false;
         }
-        return $data;
+        return $data[0];
     }
 
 }
