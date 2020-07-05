@@ -12,10 +12,10 @@ abstract class Model
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE;
-        return $db->query($sql, [], static::class);
+        return $db->query($sql,static::class, []);
     }
 
-    public static function findById($id): array
+    public static function findById($id)
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id=:id';
@@ -23,7 +23,7 @@ abstract class Model
         if (empty($data)) {
             return false;
         }
-        return $data;
+        return $data[0];
     }
     public function insert()
     {

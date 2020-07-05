@@ -11,22 +11,33 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/admin/index.php">Панель администратора</a>
+    <a class="navbar-brand" href="/">Выйти из панели администратора</a>
 </nav>
 
 <?php
 foreach ($data as $article) {
-?>
-<h2>
-    <a href="/article.php?id=<?php echo $article->id; ?>">
-        <?php echo $article->title; ?>
-    </a>
-</h2>
-<article>
-    <?php echo $article->content; ?>
-</article>
-<hr>
+    ?>
+    <h2>
+        <a href="/admin/article.php?id=<?php echo $article->id; ?>">
+            <?php echo $article->title; ?>
+        </a>
+    </h2>
+    <article>
+        <?php echo $article->content; ?>
+    </article>
+    <hr>
 <?php }; ?>
+
+Добавить новость
+<form action="/admin/addArticle.php" method="post">
+    <label>
+        <input type="text" placeholder="заголовок" name="title">
+    </label>
+    <label>
+        <input type="text" placeholder="описание" name="content">
+    </label>
+    <input type="submit">
+</form>
 
 </body>
 </html>

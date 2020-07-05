@@ -7,7 +7,6 @@ class Db
     public function __construct()
     {
         $config = \App\Config::getInstance();
-        var_dump($config);
         $this->dbh = new \PDO
         ($config->data['db']['db'] . ':host=' . $config->data['db']['host'] .
             ';dbname=' . $config->data['db']['dbname'], $config->data['db']['user'], $config->data['db']['password']);
