@@ -23,10 +23,8 @@ class Article
     {
         if ('author' == $name) {
             if (!empty($this->author_id)) {
-                return Author::findById($this->author_id)[0];
+                return Author::findById($this->author_id);
             }
         }
-
-
     }
 }

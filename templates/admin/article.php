@@ -20,8 +20,9 @@
 <article>
     <?php echo $data->content; ?>
 </article>
+<br>
+Автор: <?php echo $data->author->name; ?>
 <hr>
-
 
 <a href="/admin/deleteArticle.php?id=<?php echo $data->id; ?>">Удалить новость</a>
 <hr>
@@ -33,6 +34,9 @@
     </label>
     <label>
         <input type="text" placeholder="изменить описание" name="content">
+    </label>
+    <label>
+        <input type="text" placeholder="автор" name="author">
     </label>
     <input type="submit">
 </form>

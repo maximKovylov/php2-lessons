@@ -25,6 +25,8 @@ foreach ($data as $article) {
     <article>
         <?php echo $article->content; ?>
     </article>
+    <br>
+    Автор: <?php echo $article->author->name; ?>
     <hr>
 <?php }; ?>
 
@@ -35,6 +37,9 @@ foreach ($data as $article) {
     </label>
     <label>
         <input type="text" placeholder="описание" name="content">
+    </label>
+    <label>
+        <input type="text" placeholder="автор" name="author">
     </label>
     <input type="submit">
 </form>
