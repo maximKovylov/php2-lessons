@@ -11,7 +11,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/admin/index.php">Панель администратора</a>
+    <a class="navbar-brand" href="/admin/">Панель администратора</a>
 </nav>
 
 <?php
@@ -30,20 +30,5 @@ foreach ($this->articles as $article) {
 <hr>
 <?php }; ?>
 
-<<<<<<< HEAD
-=======
-
-Добавить новость
-<form action="/admin.php?act=insert" method="post">
-    <label>
-        <input type="text" placeholder="заголовок" name="title">
-    </label>
-    <label>
-        <input type="text" placeholder="описание" name="content">
-    </label>
-    <input type="submit">
-</form>
-
->>>>>>> + App\Models\Authors, в шаблонах сделан вывод авторов
 </body>
 </html>

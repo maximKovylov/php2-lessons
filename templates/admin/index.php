@@ -15,10 +15,10 @@
 </nav>
 
 <?php
-foreach ($data as $article) {
+foreach ($this->articles as $article) {
     ?>
     <h2>
-        <a href="/admin/article.php?id=<?php echo $article->id; ?>">
+        <a href="/admin/index.php?ctrl=Article&id=<?php echo $article->id; ?>">
             <?php echo $article->title; ?>
         </a>
     </h2>
@@ -31,7 +31,7 @@ foreach ($data as $article) {
 <?php }; ?>
 
 Добавить новость
-<form action="/admin/addArticle.php" method="post">
+<form action="/admin/index.php?ctrl=AddNews" method="post">
     <label>
         <input type="text" placeholder="заголовок" name="title">
     </label>

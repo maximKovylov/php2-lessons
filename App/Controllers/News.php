@@ -7,7 +7,7 @@ namespace App\Controllers;
 use App\Models\Article;
 use App\View;
 
-class Index
+class News
     extends BaseController
 {
     public function action()

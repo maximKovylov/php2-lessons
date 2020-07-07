@@ -1,15 +1,18 @@
 <?php
 
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
+
+use App\Controllers\BaseController;
 
 class Article
     extends BaseController
 {
+
     public function action()
     {
         $this->view->article = \App\Models\Article::findById($_GET['id']);
-        $this->view->display(__DIR__ . '/../../templates/article.php');
+        $this->view->display(__DIR__ . '/../../../templates/admin/article.php');
     }
 }

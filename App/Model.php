@@ -13,11 +13,7 @@ abstract class Model
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE;
-<<<<<<< HEAD
         return $db->query($sql,static::class, []);
-=======
-        return $db->query($sql,  static::class, []);
->>>>>>> Редактированы моделиЭ
     }
 
     public static function findById($id)

@@ -11,48 +11,19 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/admin/index.php">Панель администратора</a>
+    <a class="navbar-brand" href="/admin/">Панель администратора</a>
 </nav>
 
     <h2>
-<<<<<<< HEAD
         <?php echo $this->article->title; ?>
     </h2>
     <article>
         <?php echo $this->article->content; ?>
-=======
-        <?php echo $this->article[0]->title; ?>
-    </h2>
-    <article>
-        <?php echo $this->article[0]->content; ?>
->>>>>>> +MagicMetodsTrait
     </article>
     <br>
-<<<<<<< HEAD
     Автор: <?php echo $this->article->author->name; ?>
-=======
-    Автор: <?php echo $this->article[0]->author->name; ?>
->>>>>>> + App\Models\Authors, в шаблонах сделан вывод авторов
-    <hr>
-<<<<<<< HEAD
-=======
-
-
-    <a href="/admin.php?act=delete&id=<?php echo $this->article[0]->id; ?>">Удалить новость</a>
     <hr>
 
-    Редактировать новость<br>
-    <form action="/admin.php?id=<?php echo $this->article[0]->id; ?>&act=update" method="post">
-        <label>
-            <input type="text" placeholder="изменить заголовок" name="title">
-        </label>
-        <label>
-            <input type="text" placeholder="изменить описание" name="content">
-        </label>
-        <input type="submit">
-    </form>
-
->>>>>>> +MagicMetodsTrait
 <a href="/"><button>Назад</button></a>
 
 </body>
