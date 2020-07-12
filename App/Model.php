@@ -3,6 +3,10 @@
 namespace App;
 
 use App\Exceptions\Http404Exception;
+use App\Exceptions\MultiException;
+use App\Exceptions\ValidateException;
+use App\Models\Article;
+use App\Models\Author;
 
 abstract class Model
 {
@@ -85,4 +89,37 @@ abstract class Model
         $db = new Db();
         $db->execute($sql, [':id' => $this->id]);
     }
+
+    public function fill(array $data)
+    {
+
+        $props = get_class_vars(static::class);
+        $errors = new MultiException();
+
+        foreach ($data as $key => $value) {
+
+            $methodValidate = $key . 'Validate';
+            try {
+                if (method_exists($this, $methodValidate)) {
+                    $this->$methodValidate($value);
+                }
+                foreach ($props as $prop => $datum) {
+                    if (!empty($value)) {
+                        if ($prop == $key) {
+                            $this->$key = $value;
+                        }
+                    }
+                }
+
+            } catch (ValidateException $ex) {
+                $errors->add($ex);
+            }
+        }
+
+        if (!$errors->empty()) {
+            throw $errors;
+        }
+    }
+
+
 }

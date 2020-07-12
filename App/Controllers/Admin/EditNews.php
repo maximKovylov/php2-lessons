@@ -12,10 +12,10 @@ class EditNews
 
     public function action()
     {
-        if (!empty($_POST['title'] && !empty($_POST['content']) && !empty($_POST['author']))){
+        if (!empty($_POST['title'] && !empty($_POST['content']) && !empty($_POST['name']))){
 
             $author = new \App\Models\Author();
-            $author->name = $_POST['author'];
+            $author->name = $_POST['name'];
             $author->save();
 
             $article = \App\Models\Article::findById($_GET['id']);

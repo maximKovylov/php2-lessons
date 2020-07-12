@@ -39,7 +39,7 @@ foreach ($this->articles as $article) {
         <input type="text" placeholder="описание" name="content">
     </label>
     <label>
-        <input type="text" placeholder="автор" name="author">
+        <input type="text" placeholder="автор" name="name">
     </label>
     <input type="submit">
 </form>

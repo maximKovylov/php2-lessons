@@ -11,9 +11,17 @@
 <body>
 
 <article>
-    <strong>
-        <?php echo $error; ?>
-    </strong>
+    <?php
+    if (is_array($error)) :
+        foreach ($error as $exception) : ?>
+        <p>
+            <?php echo $exception->getMessage(); ?>
+        </p>
+        <?php endforeach;
+    else :
+        echo $error;
+    endif;
+    ?>
 </article>
 
 </body>

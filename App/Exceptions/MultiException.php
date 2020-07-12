@@ -12,7 +12,7 @@ class MultiException
     {
         $this->errors[] = $error;
     }
-    public function all()
+    public function showAll()
     {
         return $this->errors;
     }

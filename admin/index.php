@@ -19,4 +19,10 @@ try {
 } catch (\App\Exceptions\Http404Exception $ex) {
     $error = $ex->getMessage();
     include __DIR__ . '/../templates/exception.php';
+} catch (\App\Exceptions\MultiException $ex) {
+    $error = $ex->showAll();
+    include __DIR__ . '/../templates/exception.php';
+} catch (Exception $ex) {
+    $error = $ex->getMessage();
+    include __DIR__ . '/../templates/exception.php';
 }
