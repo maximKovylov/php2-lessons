@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Exceptions\Http404Exception;
+
 abstract class Model
 {
 
@@ -22,7 +24,7 @@ abstract class Model
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id=:id';
         $data = $db->query($sql,static::class, ['id' => $id]);
         if (empty($data)) {
-            return false;
+            throw new Http404Exception('Запись с id=' . $id . ' не найдена');
         }
         return $data[0];
     }
