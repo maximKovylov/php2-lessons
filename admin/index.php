@@ -8,6 +8,7 @@ if (!class_exists($class)) {
     die('Страница не найдена');
 }
 try {
+
     $ctrl = new $class;
     $ctrl();
 } catch (\App\Exceptions\DbException $ex) {
@@ -19,10 +20,7 @@ try {
 } catch (\App\Exceptions\Http404Exception $ex) {
     $error = $ex->getMessage();
     include __DIR__ . '/../templates/exception.php';
-} catch (\App\Exceptions\MultiException $ex) {
+} catch (\App\Exceptions\AllMultiException  $ex) {
     $error = $ex->showAll();
-    include __DIR__ . '/../templates/exception.php';
-} catch (Exception $ex) {
-    $error = $ex->getMessage();
-    include __DIR__ . '/../templates/exception.php';
+    include __DIR__ . '/../templates/admin/multiExceptions.php';
 }

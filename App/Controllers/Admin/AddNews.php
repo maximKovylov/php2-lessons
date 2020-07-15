@@ -5,7 +5,9 @@ namespace App\Controllers\Admin;
 
 
 use App\Controllers\BaseController;
+use App\Exceptions\AllMultiException;
 use App\Exceptions\MultiException;
+use App\Exceptions\ValidateException;
 use App\Models\Author;
 
 class AddNews
@@ -13,21 +15,38 @@ class AddNews
 {
     public function action()
     {
-        if (!empty($_POST['title'] && $_POST['content'])) {
-            if (!empty($_POST['name'])) {
-                $author = new Author();
-                $author->name = $_POST['name'];
-                $author->save();
-            } else {
-                throw new \Exception('Введите автора');
-            }
-        }
-        $article = new \App\Models\Article();
-        $article->fill($_POST);
-        if(!empty($author->id)) {
-            $article->author_id = $author->id;
-            $article->save();
+        $errors = new AllMultiException();
+        try {
+            $author = new Author();
+            $author->fill($_POST);
+            /*if (!empty($_POST['title'] && $_POST['content'])) {
+                if (!empty($_POST['name'])) {
+                    $author->save();
+                }
+            }*/
+        } catch (MultiException $ex) {
+            $errors->add($ex);
         }
 
+        try {
+            $article = new \App\Models\Article();
+            $article->fill($_POST);
+            /*if(!empty($author->id)) {
+                $article->author_id = $author->id;
+                $article->save();
+            }*/
+        } catch (MultiException $ex) {
+            $errors->add($ex);
+        }
+
+        if (!$errors->empty()) {
+            throw $errors;
+        } else {
+            $author->save();
+            if(!empty($author->id)) {
+                $article->author_id = $author->id;
+                $article->save();
+            }
+        }
     }
 }
