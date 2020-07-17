@@ -11,21 +11,11 @@
 <body>
 
 <article>
-    <?php
-    if (is_array($error)) :
-        foreach ($error as $exceptions) :
-            foreach ($exceptions->showAll() as $exception) : ?>
-            <p>
-                <?php echo $exception->getMessage(); ?>
-            </p>
-        <?php
-            endforeach;
-        endforeach;
-    else :
-        echo $error;
-    endif;
-    ?>
+    <p>
+        <?php echo $this->errors->getMessage(); ?>
+    </p>
 </article>
 
 </body>
 </html>
+

@@ -10,12 +10,15 @@ try {
     $ctrl = new $class;
     $ctrl();
 } catch (\App\Exceptions\DbException $ex) {
-    $error = $ex->getMessage();
-    include __DIR__ . '/templates/exception.php';
+    $errors = new \App\Controllers\Error();
+    $errors->error = $ex;
+    $errors();
 } catch (\App\Exceptions\SqlException $ex) {
-    $error = $ex->getMessage() . ': ' . $ex->getQuery();
-    include __DIR__ . '/templates/exception.php';
+    $errors = new \App\Controllers\Error();
+    $errors->error = $ex;
+    $errors();
 } catch (\App\Exceptions\Http404Exception $ex) {
-    $error = $ex->getMessage();
-    include __DIR__ . '/templates/exception.php';
+    $errors = new \App\Controllers\Error();
+    $errors->error = $ex;
+    $errors();
 }

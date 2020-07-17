@@ -19,11 +19,6 @@ class AddNews
         try {
             $author = new Author();
             $author->fill($_POST);
-            /*if (!empty($_POST['title'] && $_POST['content'])) {
-                if (!empty($_POST['name'])) {
-                    $author->save();
-                }
-            }*/
         } catch (MultiException $ex) {
             $errors->add($ex);
         }
@@ -31,10 +26,6 @@ class AddNews
         try {
             $article = new \App\Models\Article();
             $article->fill($_POST);
-            /*if(!empty($author->id)) {
-                $article->author_id = $author->id;
-                $article->save();
-            }*/
         } catch (MultiException $ex) {
             $errors->add($ex);
         }
