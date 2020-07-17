@@ -38,6 +38,7 @@ class AddNews
                 $article->author_id = $author->id;
                 $article->save();
             }
+            header('Location: /admin/');
         }
     }
 }
