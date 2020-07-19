@@ -14,21 +14,18 @@
     <a class="navbar-brand" href="/">Выйти из панели администратора</a>
 </nav>
 
-<?php
-foreach ($this->articles as $article) {
-    ?>
-    <h2>
-        <a href="/admin/index.php?ctrl=Article&id=<?php echo $article->id; ?>">
-            <?php echo $article->title; ?>
-        </a>
-    </h2>
-    <article>
-        <?php echo $article->content; ?>
-    </article>
-    <br>
-    Автор: <?php echo $article->author->name; ?>
+{% for article in articles %}
+    <a href="/admin/index.php?ctrl=Article&id={{ article.id }}">
+        <h2>{{article.title }}</h2>
+    </a>
+    <p>
+        {{ article.content }}
+    </p>
+    <p>
+        Автор: {{ article.author.name }}
+    </p>
     <hr>
-<?php }; ?>
+{% endfor %}
 
 Добавить новость
 <form action="/admin/index.php?ctrl=AddNews" method="post">

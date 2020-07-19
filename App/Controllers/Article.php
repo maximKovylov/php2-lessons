@@ -4,12 +4,17 @@
 namespace App\Controllers;
 
 
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+
 class Article
     extends BaseController
 {
     public function action()
     {
-        $this->view->article = \App\Models\Article::findById($_GET['id']);
-        $this->view->display(__DIR__ . '/../../templates/article.php');
+        $loader = new FilesystemLoader(__DIR__ . '/../../templates/');
+        $twig = new Environment($loader);
+        $article = \App\Models\Article::findById($_GET['id']);
+        echo $twig->render('article.php', ['article' => $article]);
     }
 }

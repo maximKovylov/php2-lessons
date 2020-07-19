@@ -14,21 +14,18 @@
     <a class="navbar-brand" href="/admin/">Панель администратора</a>
 </nav>
 
-<?php
-foreach ($this->articles as $article) {
-?>
-<h2>
-    <a href="/index.php?ctrl=Article&id=<?php echo $article->id; ?>">
-        <?php echo $article->title; ?>
+{% for article in articles %}
+    <a href="/index.php?ctrl=Article&id={{ article.id }}">
+        <h2>{{article.title }}</h2>
     </a>
-</h2>
-<article>
-    <?php echo $article->content; ?>
-</article>
-<br>
-    Автор: <?php echo $article->author->name; ?>
-<hr>
-<?php }; ?>
+    <p>
+        {{ article.content }}
+    </p>
+    <p>
+        Автор: {{ article.author.name }}
+    </p>
+    <hr>
+{% endfor %}
 
 </body>
 </html>

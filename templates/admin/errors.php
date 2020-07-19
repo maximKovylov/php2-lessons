@@ -11,18 +11,13 @@
 <body>
 
 <article>
-    <?php
-    if (is_array($this->errors->showAll())) :
-        foreach ($this->errors->showAll() as $exceptions) :
-            foreach ($exceptions->showAll() as $exception) : ?>
-            <p>
-                <?php echo $exception->getMessage(); ?>
-            </p>
-        <?php
-            endforeach;
-        endforeach;
-    endif;
-    ?>
+    {% for exceptions in errors.showAll() %}
+    {% for error in exceptions.showAll() %}
+    <p>
+        {{ error.getMessage() }}
+    </p>
+    {% endfor %}
+    {% endfor %}
 </article>
 
 </body>

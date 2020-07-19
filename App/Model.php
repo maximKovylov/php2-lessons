@@ -48,7 +48,6 @@ abstract class Model
         $sql = 'INSERT INTO ' . static::TABLE . ' 
         (' . implode(',', $columns) . ') 
         VALUES (' . implode(',', $binds) . ' )';
-
         $db = new Db();
         $db->execute($sql, $data);
         $this->id = $db->lastId();

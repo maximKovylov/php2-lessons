@@ -1,5 +1,5 @@
 {
   "require": {
-    "psr/log": "dev-master"
+    "twig/twig": "3.0.4"
   }
 }

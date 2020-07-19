@@ -3,8 +3,9 @@
 
 namespace App\Controllers\Admin;
 
-
 use App\Controllers\BaseController;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 class Error
     extends BaseController
@@ -12,7 +13,9 @@ class Error
     public \Throwable $error;
     public function action()
     {
-        $this->view->errors = $this->error;
-        $this->view->display(__DIR__ . '/../../../templates/admin/errors.php');
+        $loader = new FilesystemLoader(__DIR__ . '/../../../templates/admin/');
+        $twig = new Environment($loader);
+        $errors = $this->error;
+        echo $twig->render('errors.php', ['errors' => $errors]);
     }
 }

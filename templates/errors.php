@@ -10,11 +10,9 @@
 </head>
 <body>
 
-<article>
-    <p>
-        <?php echo $this->errors->getMessage(); ?>
-    </p>
-</article>
+<p>
+    {{ errors.getMessage() }}
+</p>
 
 </body>
 </html>

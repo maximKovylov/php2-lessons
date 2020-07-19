@@ -14,15 +14,16 @@
     <a class="navbar-brand" href="/admin/">Панель администратора</a>
 </nav>
 
-    <h2>
-        <?php echo $this->article->title; ?>
-    </h2>
-    <article>
-        <?php echo $this->article->content; ?>
-    </article>
-    <br>
-    Автор: <?php echo $this->article->author->name; ?>
-    <hr>
+<h2>
+    {{ article.title }}
+</h2>
+<p>
+    {{ article.content }}
+</p>
+<p>
+    Автор: {{ article.author.name }}
+</p>
+<hr>
 
 <a href="/"><button>Назад</button></a>
 

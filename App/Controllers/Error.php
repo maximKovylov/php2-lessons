@@ -4,13 +4,18 @@
 namespace App\Controllers;
 
 
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+
 class Error
     extends BaseController
 {
     public \Throwable $error;
     public function action()
     {
-        $this->view->errors = $this->error;
-        $this->view->display(__DIR__ . '/../../templates/errors.php');
+        $loader = new FilesystemLoader(__DIR__ . '/../../templates/');
+        $twig = new Environment($loader);
+        $errors = $this->error;
+        echo $twig->render('errors.php', ['errors' => $errors]);
     }
 }
