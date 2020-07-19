@@ -30,6 +30,20 @@ class Db
         return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
     }
 
+    public function queryEach($sql, $class, $data = [])
+    {
+        $sth = $this->dbh->prepare($sql);
+        if (!$sth->execute($data)) {
+            throw new SqlException($sql, 'ошибка в запросе');
+        }
+        $sth->setFetchMode(\PDO::FETCH_CLASS, $class);
+        if ($sth->execute($data)) {
+            while ($string = $sth->fetch(\PDO::FETCH_CLASS)) {
+                yield $string;
+            }
+        }
+    }
+
     public function execute($sql, $data = [])
     {
         $sth = $this->dbh->prepare($sql);

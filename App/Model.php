@@ -15,11 +15,11 @@ abstract class Model
 
     public int $id;
 
-    public static function findAll(): array
+    public static function findAll()
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE;
-        return $db->query($sql,static::class, []);
+        return $db->queryEach($sql,static::class, []);
     }
 
     public static function findById($id)
