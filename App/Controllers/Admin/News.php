@@ -15,9 +15,12 @@ class News
 
     public function action()
     {
-        $loader = new FilesystemLoader(__DIR__ . '/../../../templates/admin/');
+        $this->view->articles = Article::findAll();
+        $this->view->display(__DIR__ . '/../../../templates/admin/index.php');
+
+        /*$loader = new FilesystemLoader(__DIR__ . '/../../../templates/admin/');
         $twig = new Environment($loader);
         $articles = Article::findAll();
-        echo $twig->render('index.php', ['articles' => $articles]);
+        echo $twig->render('index.php', ['articles' => $articles]);*/
     }
 }

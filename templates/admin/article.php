@@ -15,21 +15,20 @@
 </nav>
 
 <h2>
-    {{ article.title }}
+    <?php echo $this->article->title; ?>
 </h2>
-<p>
-    {{ article.content }}
-</p>
-<p>
-    Автор: {{ article.author.name }}
-</p>
+<article>
+    <?php echo $this->article->content; ?>
+</article>
+<br>
+Автор: <?php echo $this->article->author->name; ?>
 <hr>
 
-<a href="/admin/index.php?ctrl=DeleteNews&id={{ article.id }}">Удалить новость</a>
+<a href="/admin/index.php?ctrl=DeleteNews&id=<?php echo $this->article->id; ?>">Удалить новость</a>
 <hr>
 
 Редактировать новость<br>
-<form action="/admin/index.php?ctrl=EditNews&id={{ article.id }}" method="post">
+<form action="/admin/index.php?ctrl=EditNews&id=<?php echo $this->article->id; ?>" method="post">
     <label>
         <input type="text" placeholder="изменить заголовок" name="title">
     </label>

@@ -36,9 +36,8 @@ class AddNews
             $author->save();
             if(!empty($author->id)) {
                 $article->author_id = $author->id;
-                var_dump($article);
                 $article->save();
-
+                header('Location: /admin/');
             }
         }
     }
