@@ -4,6 +4,7 @@
 namespace App\Controllers\Admin;
 
 
+use App\AdminDataTable;
 use App\Controllers\BaseController;
 use App\Models\Article;
 use Twig\Environment;
@@ -15,8 +16,10 @@ class News
 
     public function action()
     {
-        $this->view->articles = Article::findAll();
-        $this->view->display(__DIR__ . '/../../../templates/admin/index.php');
+        $functions = include __DIR__ . '/../../adminDataTableFunctions.php';
+        $model = Article::findAll();
+        $table = new AdminDataTable($model, $functions);
+        echo $table->render(__DIR__ . '/../../../templates/admin/index.php');
 
         /*$loader = new FilesystemLoader(__DIR__ . '/../../../templates/admin/');
         $twig = new Environment($loader);

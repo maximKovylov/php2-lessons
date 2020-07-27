@@ -23,9 +23,9 @@ class EditNews
             $article->content =$_POST['content'];
             $article->author_id = $author->id;
             $article->save();
-            header('Location: /admin/index.php?ctrl=Article&id=' .  $_GET['id']);
+            header('Location: /admin/');
         } else {
-            header('Location: /admin/index.php?ctrl=Article&id=' .  $_GET['id']);
+            header('Location: /admin/');
         }
     }
 }

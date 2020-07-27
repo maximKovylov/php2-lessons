@@ -10,25 +10,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Выйти из панели администратора</a>
-</nav>
-
-<h2>
-    <?php echo $this->article->title; ?>
-</h2>
-<article>
-    <?php echo $this->article->content; ?>
-</article>
-<br>
-Автор: <?php echo $this->article->author->name; ?>
-<hr>
-
-<a href="/admin/index.php?ctrl=DeleteNews&id=<?php echo $this->article->id; ?>">Удалить</a>
-<hr>
-
-Редактировать новость<br>
-<form action="/admin/index.php?ctrl=EditNews&id=<?php echo $this->article->id; ?>" method="post">
+<form action="/admin/index.php?ctrl=EditNews&id=<?php echo $_GET['id']; ?>" method="post">
     <label>
         <input type="text" placeholder="изменить заголовок" name="title">
     </label>
@@ -45,4 +27,3 @@
 
 </body>
 </html>
-

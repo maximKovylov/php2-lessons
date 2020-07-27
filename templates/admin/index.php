@@ -14,21 +14,36 @@
     <a class="navbar-brand" href="/">Выйти из панели администратора</a>
 </nav>
 
-<?php
-foreach ($this->articles as $article) {
-    ?>
-    <h2>
-        <a href="/admin/index.php?ctrl=Article&id=<?php echo $article->id; ?>">
-            <?php echo $article->title; ?>
-        </a>
-    </h2>
-    <article>
-        <?php echo $article->content; ?>
-    </article>
-    <br>
-    Автор: <?php echo $article->author->name; ?>
-    <hr>
-<?php }; ?>
+<table border="1">
+    <tr>
+        <th>Номер</th>
+        <th>Заголовок</th>
+        <th>Текст</th>
+        <th>Автор</th>
+        <th>Действия</th>
+    </tr>
+
+    <?php foreach ($data as $datum) : ?>
+    <tr>
+        <td>
+            <?php echo $datum['id']; ?>
+        </td>
+        <td>
+            <?php echo $datum['title']; ?>
+        </td>
+        <td>
+            <?php echo $datum['content']; ?>
+        </td>
+        <td>
+            <?php echo $datum['author']; ?>
+        </td>
+        <td>
+            <a href="/templates/admin/edit.php?id=<?php echo $datum['id']; ?>">Редактировать</a><br>
+            <a href="/admin/index.php?ctrl=DeleteNews&id=<?php echo $datum['id']; ?>">Удалить</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
 
 Добавить новость
 <form action="/admin/index.php?ctrl=AddNews" method="post">
